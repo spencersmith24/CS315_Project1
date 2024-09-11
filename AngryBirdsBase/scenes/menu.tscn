@@ -12,11 +12,12 @@ offset_bottom = 639.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 453.0
-offset_top = 193.0
-offset_right = 621.0
-offset_bottom = 235.0
-scale = Vector2(2, 2)
+offset_left = 305.0
+offset_top = 181.0
+offset_right = 5793.0
+offset_bottom = 1203.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 750
 text = "That bird game"
 
 [node name="btnPlay" type="Button" parent="Control"]
@@ -25,6 +26,7 @@ offset_left = 466.0
 offset_top = 313.0
 offset_right = 688.0
 offset_bottom = 371.0
+theme_override_font_sizes/font_size = 50
 text = "Begin"
 script = ExtResource("1_5s5pc")
 

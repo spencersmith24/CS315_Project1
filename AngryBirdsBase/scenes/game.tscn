@@ -73,6 +73,8 @@ script = ExtResource("6_f61hf")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 200
 text = "0"
 
 [connection signal="body_entered" from="Sus" to="Sus" method="_on_body_entered"]
