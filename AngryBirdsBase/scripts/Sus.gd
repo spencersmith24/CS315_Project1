@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-#TODO: You'll probably need an export_var for the particle effect here
 @export var particle_resource: Resource
 
 # Called when the node enters the scene tree for the first time.
@@ -13,15 +12,18 @@ func _process(delta):
 	pass
 
 
-#TODO:
-#this will only work if you set the rigidbody to "contact monitoring"
-#and set max contacts to higher than 0
 func _on_body_entered(body):
 	#TODO:
 	#create a particle effect at this object's location
-	#find the game UI script and send it a message that the score has increased
-	#and then destroy this object using queue_free
 	var particle_effect = particle_resource.instantiate()
+	particle_effect.position = position
+	particle_effect.emitting = true
+	get_parent().add_child(particle_effect)
+
+	#find the game UI script and send it a message that the score has increased
+	
+	#and then destroy this object using queue_free
+	queue_free()
 	pass # Replace with function body.
 
 

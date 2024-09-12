@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsv54oatgckjp"]
+[gd_scene load_steps=8 format=3 uid="uid://dsv54oatgckjp"]
 
 [ext_resource type="Script" path="res://scripts/Birdscript.gd" id="1_hjhxw"]
 [ext_resource type="Texture2D" uid="uid://c4fmp37p8rdfg" path="res://sprites/fishTile_080.png" id="2_jrear"]
 [ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_qrdjl"]
-[ext_resource type="Script" path="res://scripts/Sus.gd" id="4_kebhp"]
-[ext_resource type="Texture2D" uid="uid://civb8y0opchff" path="res://sprites/fishTile_078.png" id="5_jkv1j"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://scenes/sus.tscn" id="4_5btic"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="6_f61hf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cox6n"]
@@ -12,9 +11,6 @@ radius = 59.0762
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
 size = Vector2(1182, 41)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_280fk"]
-radius = 47.0425
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,18 +45,7 @@ position = Vector2(11, 670)
 position = Vector2(571, 10.5)
 shape = SubResource("RectangleShape2D_0fjj1")
 
-[node name="Sus" type="RigidBody2D" parent="."]
-position = Vector2(861, 515)
-gravity_scale = 0.0
-contact_monitor = true
-max_contacts_reported = 1
-script = ExtResource("4_kebhp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sus"]
-shape = SubResource("CircleShape2D_280fk")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sus"]
-texture = ExtResource("5_jkv1j")
+[node name="Sus" parent="." instance=ExtResource("4_5btic")]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -76,6 +61,3 @@ offset_bottom = 23.0
 scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 200
 text = "0"
-
-[connection signal="body_entered" from="Sus" to="Sus" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="Sus" to="Sus" method="_on_body_shape_entered"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bytnr8nclcl5m"]
+
+[ext_resource type="Script" path="res://scripts/Sus.gd" id="1_omc5b"]
+[ext_resource type="Texture2D" uid="uid://civb8y0opchff" path="res://sprites/fishTile_078.png" id="2_kef2j"]
+[ext_resource type="PackedScene" uid="uid://d3ed7efhi0va1" path="res://scenes/particle_effect.tscn" id="2_u8ge4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_280fk"]
+radius = 47.0425
+
+[node name="Sus" type="RigidBody2D"]
+position = Vector2(861, 515)
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_omc5b")
+particle_resource = ExtResource("2_u8ge4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_280fk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kef2j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

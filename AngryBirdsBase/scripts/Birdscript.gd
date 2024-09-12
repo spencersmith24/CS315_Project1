@@ -12,13 +12,7 @@ func _input(evt):
 		else:
 			tracking = false
 			
-			#TODO:
-			#set a varible kickDir to the difference between startPos and evt.position
 			var kickDir = startPos - evt.position
-			
-			#set gravity_scale to 1
 			gravity_scale = 1
-			
-			#apply a force in the kickDr direction * 300
 			linear_velocity = kickDir * FORCE
 			
