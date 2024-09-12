@@ -21,7 +21,9 @@ func _on_body_entered(body):
 	get_parent().add_child(particle_effect)
 	
 	# update score
-	get_parent().get_node("UI").add_score()
+	get_parent().get_parent().get_node("UI").add_score()
+	
+	# remove enemy
 	queue_free()
 
 

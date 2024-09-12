@@ -26,16 +26,22 @@ shape = SubResource("CircleShape2D_cox6n")
 scale = Vector2(2, 2)
 texture = ExtResource("2_jrear")
 
-[node name="Wall" parent="." instance=ExtResource("3_qrdjl")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Sus" parent="Enemies" instance=ExtResource("4_5btic")]
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_qrdjl")]
 position = Vector2(659, 610)
 
-[node name="Wall2" parent="." instance=ExtResource("3_qrdjl")]
+[node name="Wall2" parent="Walls" instance=ExtResource("3_qrdjl")]
 position = Vector2(658, 344)
 
-[node name="Wall3" parent="." instance=ExtResource("3_qrdjl")]
+[node name="Wall3" parent="Walls" instance=ExtResource("3_qrdjl")]
 position = Vector2(1042, 611)
 
-[node name="Wall4" parent="." instance=ExtResource("3_qrdjl")]
+[node name="Wall4" parent="Walls" instance=ExtResource("3_qrdjl")]
 position = Vector2(1040, 347)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -44,8 +50,6 @@ position = Vector2(11, 670)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(571, 10.5)
 shape = SubResource("RectangleShape2D_0fjj1")
-
-[node name="Sus" parent="." instance=ExtResource("4_5btic")]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
