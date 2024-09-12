@@ -1,12 +1,11 @@
 extends Control
 
-#TODO: Add a expert_var for fish object to spawn
-#TODO: Add a class property for score
+@export var fish_resource: Resource
+var score = 0
 
 func add_score():
-	#increase score
-	#show new score on page
-	
+	score += 1
+	$Label.text = str(score)
 	#if score is at max - return to main page
 	#if not at max - spawn a new fish
 	pass

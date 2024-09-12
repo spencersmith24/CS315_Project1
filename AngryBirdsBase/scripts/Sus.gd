@@ -13,18 +13,16 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	#TODO:
-	#create a particle effect at this object's location
+	
+	# pop bird
 	var particle_effect = particle_resource.instantiate()
 	particle_effect.position = position
 	particle_effect.emitting = true
 	get_parent().add_child(particle_effect)
-
-	#find the game UI script and send it a message that the score has increased
 	
-	#and then destroy this object using queue_free
+	# update score
+	get_parent().get_node("UI").add_score()
 	queue_free()
-	pass # Replace with function body.
 
 
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
