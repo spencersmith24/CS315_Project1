@@ -17,3 +17,9 @@ shape = SubResource("CircleShape2D_cox6n")
 [node name="FishTile080" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("2_a0k1h")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

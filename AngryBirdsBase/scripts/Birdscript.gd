@@ -9,6 +9,7 @@ func _input(evt):
 		if(evt.is_pressed()):
 			tracking = true
 			startPos = evt.position
+			$DespawnTimer.start()
 		else:
 			tracking = false
 			
@@ -16,3 +17,6 @@ func _input(evt):
 			gravity_scale = 1
 			linear_velocity = kickDir * FORCE
 			
+
+func _on_despawn_timer_timeout():
+	queue_free()
