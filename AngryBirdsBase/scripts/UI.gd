@@ -17,8 +17,8 @@ func add_score():
 	if (score == num_enemies):
 		$menuBtn.visible = true
 		$menuBtn.disabled = false
-		print(current_level)
 		
+		# display next level buttons depending on what level is currently on
 		if(current_level == "level1"):
 			$lvl2Btn.visible = true
 			$lvl2Btn.disabled = false

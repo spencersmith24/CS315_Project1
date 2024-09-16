@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf30nwjwv04by"]
 
-[ext_resource type="Script" path="res://scripts/Birdscript.gd" id="1_gneg5"]
-[ext_resource type="Texture2D" uid="uid://c4fmp37p8rdfg" path="res://sprites/fishTile_080.png" id="2_a0k1h"]
+[ext_resource type="Script" path="res://scripts/Birdscript.gd" id="1_wmp1x"]
+[ext_resource type="Texture2D" uid="uid://c4fmp37p8rdfg" path="res://sprites/fishTile_080.png" id="2_kqyqq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cox6n"]
 radius = 59.0762
@@ -9,14 +9,14 @@ radius = 59.0762
 [node name="Fish" type="RigidBody2D"]
 position = Vector2(272, 216)
 gravity_scale = 0.0
-script = ExtResource("1_gneg5")
+script = ExtResource("1_wmp1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cox6n")
 
 [node name="FishTile080" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_a0k1h")
+texture = ExtResource("2_kqyqq")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 6.0

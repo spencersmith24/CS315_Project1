@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dsv54oatgckjp"]
 
-[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://scenes/fish.tscn" id="1_alrau"]
-[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://scenes/sus.tscn" id="2_l6s2v"]
+[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/fish.tscn" id="1_alrau"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/sus.tscn" id="2_l6s2v"]
 [ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_8dq0d"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_v8ktl"]
 
