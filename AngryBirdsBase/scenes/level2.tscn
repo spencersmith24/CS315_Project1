@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
 size = Vector2(1182, 41)
 
-[node name="Node2D" type="Node2D"]
+[node name="level2" type="Node2D"]
 
 [node name="Fishies" type="Node" parent="."]
 
@@ -71,4 +71,16 @@ scale = Vector2(2.08, 2.08)
 disabled = true
 text = "Menu"
 
+[node name="lvl3Btn" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 652.0
+offset_top = 320.0
+offset_right = 714.0
+offset_bottom = 351.0
+scale = Vector2(2.08, 2.08)
+disabled = true
+text = "Level 3"
+
 [connection signal="pressed" from="UI/menuBtn" to="UI" method="_on_menu_btn_pressed"]
+[connection signal="pressed" from="UI/lvl3Btn" to="UI" method="_on_lvl_3_btn_pressed"]
