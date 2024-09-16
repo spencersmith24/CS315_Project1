@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsv54oatgckjp"]
+[gd_scene load_steps=6 format=3 uid="uid://dm6fkaxpbvm51"]
 
-[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://scenes/fish.tscn" id="1_alrau"]
-[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://scenes/sus.tscn" id="2_l6s2v"]
-[ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_8dq0d"]
-[ext_resource type="Script" path="res://scripts/UI.gd" id="4_v8ktl"]
+[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://scenes/fish.tscn" id="1_sscc5"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://scenes/sus.tscn" id="2_n7vn6"]
+[ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_yvorb"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="4_xidfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
 size = Vector2(1182, 41)
@@ -12,31 +12,28 @@ size = Vector2(1182, 41)
 
 [node name="Fishies" type="Node" parent="."]
 
-[node name="Fish" parent="Fishies" instance=ExtResource("1_alrau")]
+[node name="Fish" parent="Fishies" instance=ExtResource("1_sscc5")]
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Sus" parent="Enemies" instance=ExtResource("2_l6s2v")]
+[node name="Sus" parent="Enemies" instance=ExtResource("2_n7vn6")]
 position = Vector2(864, 538)
 
-[node name="Sus2" parent="Enemies" instance=ExtResource("2_l6s2v")]
+[node name="Sus2" parent="Enemies" instance=ExtResource("2_n7vn6")]
 position = Vector2(859, 210)
-
-[node name="Sus3" parent="Enemies" instance=ExtResource("2_l6s2v")]
-position = Vector2(265, 560)
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="Wall" parent="Walls" instance=ExtResource("3_8dq0d")]
+[node name="Wall" parent="Walls" instance=ExtResource("3_yvorb")]
 position = Vector2(659, 610)
 
-[node name="Wall2" parent="Walls" instance=ExtResource("3_8dq0d")]
+[node name="Wall2" parent="Walls" instance=ExtResource("3_yvorb")]
 position = Vector2(658, 344)
 
-[node name="Wall3" parent="Walls" instance=ExtResource("3_8dq0d")]
+[node name="Wall3" parent="Walls" instance=ExtResource("3_yvorb")]
 position = Vector2(1042, 611)
 
-[node name="Wall4" parent="Walls" instance=ExtResource("3_8dq0d")]
+[node name="Wall4" parent="Walls" instance=ExtResource("3_yvorb")]
 position = Vector2(1040, 347)
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -52,8 +49,8 @@ anchors_preset = 0
 offset_left = 33.0
 offset_right = 73.0
 offset_bottom = 40.0
-script = ExtResource("4_v8ktl")
-fish_resource = ExtResource("1_alrau")
+script = ExtResource("4_xidfl")
+fish_resource = ExtResource("1_sscc5")
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0

@@ -3,6 +3,7 @@ extends Control
 @export var fish_resource: Resource
 var score = 0
 var num_enemies
+@onready var fish_node = $"../Fishies"
 
 func add_score():
 	
@@ -15,8 +16,11 @@ func add_score():
 		$menuBtn.disabled = false
 	else:
 	#if not at max - spawn a new fish
-		var fish = fish_resource.instantiate()
-		add_child(fish)
+	
+	#TODO: if you miss, spawn a new fish
+		if (fish_node.get_child_count() <= 1):
+			var fish = fish_resource.instantiate()
+			fish_node.add_child(fish)
 	pass
 
 

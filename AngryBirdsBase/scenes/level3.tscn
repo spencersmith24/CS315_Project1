@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw5cyv0b4f17d"]
+
+[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://scenes/fish.tscn" id="1_3ggfm"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://scenes/sus.tscn" id="2_aujah"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="4_pawil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
+size = Vector2(1182, 41)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Fishies" type="Node" parent="."]
+
+[node name="Fish" parent="Fishies" instance=ExtResource("1_3ggfm")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Sus3" parent="Enemies" instance=ExtResource("2_aujah")]
+position = Vector2(265, 560)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(11, 670)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(571, 10.5)
+shape = SubResource("RectangleShape2D_0fjj1")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 33.0
+offset_right = 73.0
+offset_bottom = 40.0
+script = ExtResource("4_pawil")
+fish_resource = ExtResource("1_3ggfm")
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 600
+text = "0"
+
+[node name="menuBtn" type="Button" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 479.0
+offset_top = 320.0
+offset_right = 532.0
+offset_bottom = 351.0
+scale = Vector2(2.08, 2.08)
+disabled = true
+text = "Menu"
+
+[connection signal="pressed" from="UI/menuBtn" to="UI" method="_on_menu_btn_pressed"]
