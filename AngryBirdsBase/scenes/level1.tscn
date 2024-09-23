@@ -1,18 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsv54oatgckjp"]
+[gd_scene load_steps=8 format=3 uid="uid://dsv54oatgckjp"]
 
 [ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/fish.tscn" id="1_alrau"]
 [ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/sus.tscn" id="2_l6s2v"]
 [ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_8dq0d"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_v8ktl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
-size = Vector2(1182, 41)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4w6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78of1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6qsy"]
 
 [node name="level1" type="Node2D"]
 
 [node name="Fishies" type="Node" parent="."]
 
 [node name="Fish" parent="Fishies" instance=ExtResource("1_alrau")]
+position = Vector2(220, 220)
+
+[node name="DeadFish" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -39,12 +45,33 @@ position = Vector2(1042, 611)
 [node name="Wall4" parent="Walls" instance=ExtResource("3_8dq0d")]
 position = Vector2(1040, 347)
 
+[node name="Borders" type="Node" parent="."]
+
+[node name="LBorder" type="Area2D" parent="Borders"]
+position = Vector2(-246, -2342)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LBorder"]
+position = Vector2(663, 1)
+scale = Vector2(240, 1.905)
+shape = SubResource("RectangleShape2D_b4w6v")
+
+[node name="RBorder" type="Area2D" parent="Borders"]
+position = Vector2(1828, 638)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RBorder"]
+position = Vector2(2269, -405.985)
+scale = Vector2(239.282, 1)
+shape = SubResource("RectangleShape2D_78of1")
+
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(11, 670)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(571, 10.5)
-shape = SubResource("RectangleShape2D_0fjj1")
+position = Vector2(571, 9)
+scale = Vector2(1.56, 1)
+shape = SubResource("WorldBoundaryShape2D_t6qsy")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -85,5 +112,7 @@ scale = Vector2(2.08, 2.08)
 disabled = true
 text = "Level 2"
 
+[connection signal="body_entered" from="Borders/LBorder" to="UI" method="_on_l_border_body_entered"]
+[connection signal="body_entered" from="Borders/RBorder" to="UI" method="_on_r_border_body_entered"]
 [connection signal="pressed" from="UI/menuBtn" to="UI" method="_on_menu_btn_pressed"]
 [connection signal="pressed" from="UI/lvl2Btn" to="UI" method="_on_lvl_2_btn_pressed"]

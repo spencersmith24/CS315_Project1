@@ -10,8 +10,9 @@ func _input(evt):
 		if(evt.is_pressed()):
 			tracking = true
 			startPos = evt.position
-			$DespawnTimer.start()
 		else:
+			change_parent(self, $"..", $"../../DeadFish")
+			$DespawnTimer.start()
 			tracking = false
 			flingable = false
 			
@@ -22,3 +23,7 @@ func _input(evt):
 
 func _on_despawn_timer_timeout():
 	queue_free()
+
+func change_parent(child: Node, old_parent: Node, new_parent: Node):
+	old_parent.remove_child(child)
+	new_parent.add_child(child)

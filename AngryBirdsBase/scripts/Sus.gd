@@ -2,7 +2,7 @@ extends RigidBody2D
 
 @export var particle_resource: Resource
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	
 	# pop bird
 	var particle_effect = particle_resource.instantiate()
@@ -11,7 +11,7 @@ func _on_body_entered(body):
 	get_parent().add_child(particle_effect)
 	
 	# update score
-	get_parent().get_parent().get_node("UI").add_score()
+	get_parent().get_parent().get_node("UI").call_deferred("add_score")
 	
 	# remove enemy
 	queue_free()
