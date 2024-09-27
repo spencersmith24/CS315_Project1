@@ -9,8 +9,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oxfw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
-size = Vector2(1182, 41)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4v74h"]
 
 [node name="level2" type="Node2D"]
 
@@ -51,7 +50,7 @@ rotation = 1.57079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LBorder"]
 position = Vector2(663, 1)
-scale = Vector2(240, 1.905)
+scale = Vector2(287.44, 1.905)
 shape = SubResource("RectangleShape2D_f6nbu")
 
 [node name="RBorder" type="Area2D" parent="Borders"]
@@ -60,7 +59,7 @@ rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RBorder"]
 position = Vector2(2269, -405.985)
-scale = Vector2(239.282, 1)
+scale = Vector2(287.957, 1.02392)
 shape = SubResource("RectangleShape2D_3oxfw")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -68,7 +67,7 @@ position = Vector2(11, 670)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(571, 10.5)
-shape = SubResource("RectangleShape2D_0fjj1")
+shape = SubResource("WorldBoundaryShape2D_4v74h")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

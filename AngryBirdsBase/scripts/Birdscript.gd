@@ -11,19 +11,17 @@ func _input(evt):
 			tracking = true
 			startPos = evt.position
 		else:
-			change_parent(self, $"..", $"../../DeadFish")
 			$DespawnTimer.start()
+			$SpawnTimer.start()
 			tracking = false
 			flingable = false
 			
 			var kickDir = startPos - evt.position
 			gravity_scale = 1
 			linear_velocity = kickDir * FORCE
-			
 
 func _on_despawn_timer_timeout():
 	queue_free()
 
-func change_parent(child: Node, old_parent: Node, new_parent: Node):
-	old_parent.remove_child(child)
-	new_parent.add_child(child)
+func _on_spawn_timer_timeout():
+	$"../../UI".spawn_fish()

@@ -2,7 +2,7 @@ extends Control
 
 @export var fish_resource: Resource
 
-@onready var fish_node = $"../DeadFish"
+@onready var dead_fish_node = $"../DeadFish"
 @onready var current_level = get_tree().get_current_scene().name
 
 var score = 0
@@ -25,14 +25,11 @@ func add_score():
 		elif(current_level == "level2"):
 			$lvl3Btn.visible = true
 			$lvl3Btn.disabled = false
-	else:
-		spawn_fish()
 
 func spawn_fish():
-	if (fish_node.get_child_count() <= 1):
-		var fish = fish_resource.instantiate()
-		fish.position = Vector2(220, 220)
-		fish_node.add_child(fish)
+	var fish = fish_resource.instantiate()
+	fish.position = Vector2(220, 220)
+	dead_fish_node.add_child(fish)
 
 func _ready():
 	num_enemies = get_parent().find_child("Enemies").get_child_count()
@@ -51,12 +48,12 @@ func _on_lvl_3_btn_pressed():
 
 # delete and respawn fish if hits right border
 func _on_r_border_body_entered(body: Node2D) -> void:
-	if(body == fish_node.get_child(0)):
-		body.queue_free()
+	if(body == dead_fish_node.get_child(0)):
 		spawn_fish()
+		body.queue_free()
 
 # delete and respawn fish if hits left border
 func _on_l_border_body_entered(body: Node2D) -> void:
-	if(body == fish_node.get_child(0)):
-		body.queue_free()
+	if(body == dead_fish_node.get_child(0)):
 		spawn_fish()
+		body.queue_free()

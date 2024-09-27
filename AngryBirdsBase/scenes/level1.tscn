@@ -50,6 +50,7 @@ position = Vector2(1040, 347)
 [node name="LBorder" type="Area2D" parent="Borders"]
 position = Vector2(-246, -2342)
 rotation = 1.57079
+scale = Vector2(1.77464, -1.07491)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LBorder"]
 position = Vector2(663, 1)
@@ -62,7 +63,7 @@ rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RBorder"]
 position = Vector2(2269, -405.985)
-scale = Vector2(239.282, 1)
+scale = Vector2(506.473, -2.2459)
 shape = SubResource("RectangleShape2D_78of1")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -112,6 +113,7 @@ scale = Vector2(2.08, 2.08)
 disabled = true
 text = "Level 2"
 
+[connection signal="dead_fish" from="Fishies/Fish" to="UI" method="_on_fish_dead_fish"]
 [connection signal="body_entered" from="Borders/LBorder" to="UI" method="_on_l_border_body_entered"]
 [connection signal="body_entered" from="Borders/RBorder" to="UI" method="_on_r_border_body_entered"]
 [connection signal="pressed" from="UI/menuBtn" to="UI" method="_on_menu_btn_pressed"]

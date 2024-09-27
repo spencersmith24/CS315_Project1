@@ -8,8 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmos1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fjj1"]
-size = Vector2(1182, 41)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qmucm"]
 
 [node name="level3" type="Node2D"]
 
@@ -52,7 +51,7 @@ position = Vector2(11, 670)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(571, 10.5)
-shape = SubResource("RectangleShape2D_0fjj1")
+shape = SubResource("WorldBoundaryShape2D_qmucm")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
