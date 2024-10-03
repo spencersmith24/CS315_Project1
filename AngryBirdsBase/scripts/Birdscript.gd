@@ -1,9 +1,9 @@
 extends RigidBody2D
 
 var tracking = false
+var flingable = true
 var startPos = Vector2()
 const FORCE = 10
-var flingable = true
 
 func _input(evt):
 	if(evt is InputEventMouseButton and evt.button_index == MOUSE_BUTTON_LEFT and flingable):

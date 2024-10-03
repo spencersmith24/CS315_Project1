@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dewyn5as4inkm"]
+[gd_scene load_steps=3 format=3 uid="uid://dewyn5as4inkm"]
 
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="1_5s5pc"]
+[ext_resource type="PackedScene" uid="uid://baudl4f8nbiu6" path="res://scenes/background.tscn" id="1_q47js"]
 
 [node name="menu" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_q47js")]
+position = Vector2(572, 313)
+scale = Vector2(0.703443, 0.703443)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -18,7 +23,8 @@ offset_right = 5793.0
 offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 theme_override_font_sizes/font_size = 750
-text = "That bird game"
+text = "Mad Flyers"
+horizontal_alignment = 1
 
 [node name="btnPlay" type="Button" parent="Control"]
 layout_mode = 0

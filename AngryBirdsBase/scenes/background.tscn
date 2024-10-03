@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://baudl4f8nbiu6"]
+
+[ext_resource type="Texture2D" uid="uid://c5sfywpx5rc6e" path="res://sprites/kenney_jumper-pack/PNG/Background/bg_layer1.png" id="1_yu4qy"]
+[ext_resource type="Texture2D" uid="uid://lppragawwn3w" path="res://sprites/kenney_jumper-pack/PNG/Background/bg_layer2.png" id="2_i5tb0"]
+[ext_resource type="Texture2D" uid="uid://d3386pgqob2sq" path="res://sprites/kenney_jumper-pack/PNG/Background/bg_layer3.png" id="3_ohkw0"]
+[ext_resource type="Texture2D" uid="uid://cgdmnv025hfxp" path="res://sprites/kenney_jumper-pack/PNG/Background/bg_layer4.png" id="4_q01rn"]
+
+[node name="Background" type="Node2D"]
+scale = Vector2(0.468706, 0.468706)
+metadata/_edit_group_ = true
+
+[node name="BgLayer1" type="Sprite2D" parent="."]
+texture = ExtResource("1_yu4qy")
+
+[node name="BgLayer2" type="Sprite2D" parent="."]
+texture = ExtResource("2_i5tb0")
+
+[node name="BgLayer3" type="Sprite2D" parent="."]
+texture = ExtResource("3_ohkw0")
+
+[node name="BgLayer4" type="Sprite2D" parent="."]
+texture = ExtResource("4_q01rn")

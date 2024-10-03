@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsv54oatgckjp"]
+[gd_scene load_steps=9 format=3 uid="uid://dsv54oatgckjp"]
 
-[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/fish.tscn" id="1_alrau"]
-[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/sus.tscn" id="2_l6s2v"]
+[ext_resource type="PackedScene" uid="uid://baudl4f8nbiu6" path="res://scenes/background.tscn" id="1_8f0ss"]
+[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/player.tscn" id="1_alrau"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/enemy.tscn" id="2_l6s2v"]
 [ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="3_8dq0d"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_v8ktl"]
 
@@ -12,6 +13,10 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6qsy"]
 
 [node name="level1" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_8f0ss")]
+position = Vector2(558, 407)
+scale = Vector2(0.628705, 0.468706)
 
 [node name="Fishies" type="Node" parent="."]
 
@@ -29,7 +34,7 @@ position = Vector2(864, 538)
 position = Vector2(859, 210)
 
 [node name="Sus3" parent="Enemies" instance=ExtResource("2_l6s2v")]
-position = Vector2(265, 560)
+position = Vector2(780, 362)
 
 [node name="Walls" type="Node" parent="."]
 
@@ -113,7 +118,6 @@ scale = Vector2(2.08, 2.08)
 disabled = true
 text = "Level 2"
 
-[connection signal="dead_fish" from="Fishies/Fish" to="UI" method="_on_fish_dead_fish"]
 [connection signal="body_entered" from="Borders/LBorder" to="UI" method="_on_l_border_body_entered"]
 [connection signal="body_entered" from="Borders/RBorder" to="UI" method="_on_r_border_body_entered"]
 [connection signal="pressed" from="UI/menuBtn" to="UI" method="_on_menu_btn_pressed"]

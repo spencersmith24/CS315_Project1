@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw5cyv0b4f17d"]
+[gd_scene load_steps=8 format=3 uid="uid://dw5cyv0b4f17d"]
 
-[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/fish.tscn" id="1_3ggfm"]
-[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/sus.tscn" id="2_aujah"]
+[ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/player.tscn" id="1_3ggfm"]
+[ext_resource type="PackedScene" uid="uid://baudl4f8nbiu6" path="res://scenes/background.tscn" id="1_ip2kt"]
+[ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/enemy.tscn" id="2_aujah"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_pawil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ihx"]
@@ -11,6 +12,10 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qmucm"]
 
 [node name="level3" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_ip2kt")]
+position = Vector2(558, 407)
+scale = Vector2(0.628705, 0.468706)
 
 [node name="Fishies" type="Node" parent="."]
 
