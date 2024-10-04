@@ -10,9 +10,13 @@ func _input(evt):
 		if(evt.is_pressed()):
 			tracking = true
 			startPos = evt.position
+			$AnimatedSprite2D.play("fly")
+			$PullBackSound.play()
 		else:
 			$DespawnTimer.start()
 			$SpawnTimer.start()
+			$AnimatedSprite2D.play("noFly")
+			$ReleaseSound.play()
 			tracking = false
 			flingable = false
 			

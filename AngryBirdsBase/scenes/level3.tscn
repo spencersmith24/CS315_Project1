@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dw5cyv0b4f17d"]
+[gd_scene load_steps=9 format=3 uid="uid://dw5cyv0b4f17d"]
 
 [ext_resource type="PackedScene" uid="uid://bf30nwjwv04by" path="res://gameObjects/player.tscn" id="1_3ggfm"]
 [ext_resource type="PackedScene" uid="uid://baudl4f8nbiu6" path="res://scenes/background.tscn" id="1_ip2kt"]
 [ext_resource type="PackedScene" uid="uid://bytnr8nclcl5m" path="res://gameObjects/enemy.tscn" id="2_aujah"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_pawil"]
+[ext_resource type="PackedScene" uid="uid://d10wpgk0dbtt4" path="res://gameObjects/wall.tscn" id="4_yq21s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5ihx"]
 
@@ -27,9 +28,42 @@ position = Vector2(220, 220)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Sus3" parent="Enemies" instance=ExtResource("2_aujah")]
-position = Vector2(265, 560)
+position = Vector2(577, 542)
+
+[node name="enemy" parent="Enemies" instance=ExtResource("2_aujah")]
+position = Vector2(806, 536)
+
+[node name="enemy2" parent="Enemies" instance=ExtResource("2_aujah")]
+position = Vector2(833, 197)
 
 [node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(696, 620)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(921, 619)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(928, 344)
+rotation = -1.57079
+
+[node name="Wall4" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(731, 272)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(934, 255)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(450, 613)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(657, 342)
+rotation = -1.57079
+
+[node name="Wall8" parent="Walls" instance=ExtResource("4_yq21s")]
+position = Vector2(932, -27)
+rotation = -1.57079
 
 [node name="Borders" type="Node" parent="."]
 
@@ -69,8 +103,8 @@ fish_resource = ExtResource("1_3ggfm")
 
 [node name="Label" type="Label" parent="UI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 342.0
+offset_bottom = 818.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 600
 text = "0"

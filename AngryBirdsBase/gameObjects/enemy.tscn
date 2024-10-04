@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bytnr8nclcl5m"]
+[gd_scene load_steps=6 format=3 uid="uid://bytnr8nclcl5m"]
 
 [ext_resource type="Script" path="res://scripts/Sus.gd" id="1_omc5b"]
 [ext_resource type="PackedScene" uid="uid://d3ed7efhi0va1" path="res://scenes/particle_effect.tscn" id="2_u8ge4"]
-[ext_resource type="Texture2D" uid="uid://bsqthmktjq3fv" path="res://sprites/kenney_jumper-pack/PNG/Enemies/springMan_hurt.png" id="3_otasb"]
+[ext_resource type="Texture2D" uid="uid://bsqthmktjq3fv" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/springMan_hurt.png" id="3_otasb"]
+[ext_resource type="AudioStream" uid="uid://bek7l52ndgwlx" path="res://assets/sounds/zapsplat_cartoon_bird_poop_hit_surface_splat_squelch_004_74093.mp3" id="4_yemn2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_280fk"]
 radius = 47.0425
@@ -21,5 +22,12 @@ shape = SubResource("CircleShape2D_280fk")
 scale = Vector2(0.589321, 0.589321)
 texture = ExtResource("3_otasb")
 
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_yemn2")
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

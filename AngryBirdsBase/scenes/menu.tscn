@@ -1,13 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://dewyn5as4inkm"]
+[gd_scene load_steps=6 format=3 uid="uid://dewyn5as4inkm"]
 
 [ext_resource type="Script" path="res://scripts/StartGame.gd" id="1_5s5pc"]
 [ext_resource type="PackedScene" uid="uid://baudl4f8nbiu6" path="res://scenes/background.tscn" id="1_q47js"]
+[ext_resource type="Texture2D" uid="uid://dritiee1bajya" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/flyMan_still_jump.png" id="2_ji0ox"]
+[ext_resource type="Texture2D" uid="uid://dqv8jegoyhuof" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/springMan_stand.png" id="3_afs0p"]
+[ext_resource type="Texture2D" uid="uid://bsqthmktjq3fv" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/springMan_hurt.png" id="4_1sac2"]
 
 [node name="menu" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_q47js")]
 position = Vector2(572, 313)
 scale = Vector2(0.703443, 0.703443)
+
+[node name="FlyManStillJump" type="Sprite2D" parent="."]
+position = Vector2(172, 453)
+rotation = 0.563574
+scale = Vector2(1.9746, 1.9746)
+texture = ExtResource("2_ji0ox")
+
+[node name="SpringManStand" type="Sprite2D" parent="."]
+position = Vector2(967, 483)
+rotation = -0.551845
+scale = Vector2(1.27782, 1.27782)
+texture = ExtResource("3_afs0p")
+
+[node name="SpringManHurt" type="Sprite2D" parent="."]
+position = Vector2(859, 578)
+rotation = -0.0478674
+scale = Vector2(0.650056, 0.650056)
+texture = ExtResource("4_1sac2")
+
+[node name="SpringManHurt2" type="Sprite2D" parent="."]
+position = Vector2(1079, 376)
+rotation = -0.955825
+scale = Vector2(0.650056, 0.650056)
+texture = ExtResource("4_1sac2")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -17,21 +44,25 @@ offset_bottom = 639.0
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 181.0
-offset_right = 5793.0
-offset_bottom = 1203.0
+offset_left = 272.0
+offset_top = 184.0
+offset_right = 5760.0
+offset_bottom = 1206.0
 scale = Vector2(0.1, 0.1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 40
+theme_override_constants/shadow_offset_y = 40
 theme_override_font_sizes/font_size = 750
 text = "Mad Flyers"
 horizontal_alignment = 1
 
 [node name="btnPlay" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 313.0
-offset_right = 688.0
-offset_bottom = 371.0
+offset_left = 448.0
+offset_top = 304.0
+offset_right = 670.0
+offset_bottom = 381.0
 theme_override_font_sizes/font_size = 50
 text = "Begin"
 script = ExtResource("1_5s5pc")

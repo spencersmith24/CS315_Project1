@@ -1,10 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf30nwjwv04by"]
+[gd_scene load_steps=9 format=3 uid="uid://bf30nwjwv04by"]
 
 [ext_resource type="Script" path="res://scripts/Birdscript.gd" id="1_yo7rq"]
-[ext_resource type="Texture2D" uid="uid://cu5mo3tlxdxp7" path="res://sprites/kenney_jumper-pack/PNG/Enemies/flyMan_fly.png" id="2_0sc04"]
+[ext_resource type="Texture2D" uid="uid://cu5mo3tlxdxp7" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/flyMan_fly.png" id="2_0sc04"]
+[ext_resource type="Texture2D" uid="uid://nj5y8pf8vl1b" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/flyMan_still_fly.png" id="3_oovc2"]
+[ext_resource type="Texture2D" uid="uid://b2b7msasdibj6" path="res://assets/sprites/kenney_jumper-pack/PNG/Enemies/flyMan_still_stand.png" id="4_5y3tf"]
+[ext_resource type="AudioStream" uid="uid://cwcahkv41lqnu" path="res://assets/sounds/zapsplat_cartoon_squeak_creak_rub_hard_001_76765.mp3" id="5_p8dcr"]
+[ext_resource type="AudioStream" uid="uid://hgucvgfl0xa2" path="res://assets/sounds/zapsplat_cartoon_character_male_high_pitched_scream_fall_height_fade_out_003_22823.mp3" id="6_tu17g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cox6n"]
 radius = 59.0762
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciger"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0sc04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oovc2")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5y3tf")
+}],
+"loop": true,
+"name": &"noFly",
+"speed": 5.0
+}]
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -13,10 +39,11 @@ script = ExtResource("1_yo7rq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cox6n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.57079
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
 scale = Vector2(0.7292, 0.7292)
-texture = ExtResource("2_0sc04")
+sprite_frames = SubResource("SpriteFrames_ciger")
+animation = &"fly"
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 6.0
@@ -25,6 +52,12 @@ one_shot = true
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="PullBackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p8dcr")
+
+[node name="ReleaseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tu17g")
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx68j7w4xa34a"]
+
+[ext_resource type="AudioStream" uid="uid://bpl0l41dsi3aj" path="res://assets/sounds/mr_clown.mp3" id="1_nt13j"]
+
+[node name="bgMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_nt13j")
+autoplay = true

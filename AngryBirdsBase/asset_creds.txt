@@ -1,0 +1,3 @@
+All sounds are from zapsplat.com
+
+Player and enemy sprites are from kenney.nl
